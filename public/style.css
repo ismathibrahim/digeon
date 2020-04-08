@@ -58,6 +58,7 @@ body {
 
 .chat-page {
   display: none;
+  justify-content: center;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -78,10 +79,11 @@ body {
 /* Messages */
 
 .chat-area {
-  flex-grow: 1;
+  width: 600px;
   padding-bottom: 60px;
   display: flex;
   flex-direction: column-reverse;
+  border: 1px solid #aaa;
 }
 
 .messages {
@@ -100,7 +102,7 @@ body {
 .message-body {
   overflow-wrap: normal;
   max-width: 300px;
-  background-color: skyblue;
+  background-color: #efefef;
   padding: 10px 15px 10px 15px;
   border-radius: 10px;
   color: #111;
@@ -117,14 +119,23 @@ body {
 /* Input */
 
 .message-input {
-  flex-shrink: 0;
-  border: 10px solid #000;
+  border: 1px solid #aaa;
   bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  width: 600px;
   height: 60px;
   outline: none;
   padding-left: 10px;
   position: fixed;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+  border-radius: 20px;
+  border: 3px solid #fff;
 }
