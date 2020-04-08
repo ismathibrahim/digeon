@@ -70,7 +70,6 @@ body {
 
 .log {
   color: gray;
-  font-size: 70%;
   margin: 5px;
   text-align: center;
 }
@@ -79,25 +78,37 @@ body {
 
 .chat-area {
   flex-grow: 1;
-  height: 100%;
   padding-bottom: 60px;
   display: flex;
   flex-direction: column-reverse;
 }
 
 .messages {
-  font-size: 200%;
   margin: 0;
   overflow-y: auto;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px 50px 20px;
+}
+
+.message {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message-body {
+  background-color: skyblue;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  color: #111;
 }
 
 .username {
+  font-size: 80%;
   font-weight: 700;
   overflow: hidden;
-  padding-right: 15px;
   text-align: right;
-  color: purple;
+  color: grey;
 }
 
 /* Input */
@@ -113,8 +124,4 @@ body {
   outline: none;
   padding-left: 10px;
   position: fixed;
-}
-
-.icon-pigeon {
-  width: 100px;
 }

@@ -68,7 +68,7 @@ const addChatMessage = (data) => {
   usernameDiv.textContent = data.username;
 
   let messageBodyDiv = document.createElement("span");
-  messageBodyDiv.classList.add("messageBody");
+  messageBodyDiv.classList.add("message-body");
   messageBodyDiv.textContent = data.message;
 
   let messageDiv = document.createElement("div");
