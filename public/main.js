@@ -32,7 +32,7 @@ const setUsername = () => {
   // If the username is valid
   if (username) {
     loginPage.style.display = "none";
-    chatPage.style.display = "block";
+    chatPage.style.display = "flex";
     currentInput = messageInput;
     messageInput.focus();
 
