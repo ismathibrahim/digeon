@@ -70,6 +70,7 @@ body {
 
 .log {
   color: gray;
+  font-size: 80%;
   margin: 5px;
   text-align: center;
 }
@@ -97,9 +98,11 @@ body {
 }
 
 .message-body {
+  overflow-wrap: normal;
+  max-width: 300px;
   background-color: skyblue;
   padding: 10px 15px 10px 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #111;
 }
 
