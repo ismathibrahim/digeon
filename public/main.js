@@ -76,6 +76,11 @@ const addChatMessage = (data) => {
   messageDiv.appendChild(usernameDiv);
   messageDiv.appendChild(messageBodyDiv);
 
+  // Username is current user, change it's style
+  if (data.username === username) {
+    messageDiv.classList.add("ownMessage");
+  }
+
   addMessageElement(messageDiv);
 };
 
