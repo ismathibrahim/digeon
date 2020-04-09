@@ -1,6 +1,7 @@
 const nameInput = document.querySelector(".name-input");
 const messages = document.querySelector(".messages");
 const messageInput = document.querySelector(".message-input");
+const sendButton = document.querySelector(".send-button");
 
 const loginPage = document.querySelector(".login-page");
 const chatPage = document.querySelector(".chat-page");
@@ -165,6 +166,8 @@ loginPage.addEventListener("click", () => currentInput.focus());
 
 // Focus input when clicking anywhere on chat page
 chatPage.addEventListener("click", () => currentInput.focus());
+
+sendButton.addEventListener("click", sendMessage);
 
 /* Socket Events */
 

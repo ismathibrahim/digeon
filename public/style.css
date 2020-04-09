@@ -143,22 +143,43 @@ body {
 
 /* Input */
 
-.message-input {
-  background-color: #393351;
-  color: #fff;
-  border-color: transparent;
-  border-radius: 1rem;
-  outline: none;
-  padding: 10px;
+.message-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 60px;
   margin: 0 auto;
   position: fixed;
   bottom: 10px;
   width: 600px;
 }
+.message-input {
+  background-color: #393351;
+  color: #fff;
+  border-color: transparent;
+  border-radius: 1rem;
+  outline: none;
+  padding: 20px 65px 20px 20px;
+  height: 60px;
+  width: 600px;
+}
+
+.send-button {
+  z-index: 99;
+  position: absolute;
+  right: 20px;
+  width: 30px;
+  fill: #656378;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  fill: #817f94;
+  transition: 0.2s;
+}
 
 @media only screen and (max-width: 650px) {
-  .message-input {
+  .message-input-container {
     width: 95vw;
   }
 }
