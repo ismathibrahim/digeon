@@ -129,6 +129,10 @@ body {
   display: none;
 }
 
+.typing .message-body {
+  color: #656378;
+}
+
 .username {
   font-size: 80%;
   font-weight: 700;

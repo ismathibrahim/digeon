@@ -63,6 +63,8 @@ const log = (message) => {
 
 // Add the visual chat message to the message list
 const addChatMessage = (data) => {
+  removeChatTyping(data);
+
   let usernameDiv = document.createElement("span");
   usernameDiv.classList.add("username");
   usernameDiv.textContent = data.username;
@@ -81,14 +83,66 @@ const addChatMessage = (data) => {
     messageDiv.classList.add("ownMessage");
   }
 
+  if (data.typing) {
+    messageDiv.classList.add("typing");
+  }
+
   addMessageElement(messageDiv);
 };
 
+// Add visual chat typing message
+const addChatTyping = (data) => {
+  data.typing = true;
+  data.message = "typing...";
+  addChatMessage(data);
+};
+
+// Remove the visual chat typing message
+const removeChatTyping = (data) => {
+  // Get list of all typing messages
+  typingMessages = document.querySelectorAll(".typing");
+
+  // Filter typing messages to find this user's typing message
+  typingMessages.forEach((element) => {
+    if (element.firstChild.textContent === data.username) {
+      element.remove();
+    }
+  });
+};
+
 // Adds a message element to the messages and scrolls to the bottom
-// @param element - the element to add as a message
 const addMessageElement = (element) => {
   messages.appendChild(element);
   messages.scrollTop = messages.scrollHeight;
+};
+
+//Update the typing event
+const updateTyping = () => {
+  if (connected) {
+    if (!typing) {
+      typing = true;
+      socket.emit("typing");
+    }
+    lastTypingTime = new Date().getTime();
+
+    setTimeout(() => {
+      let typingTimer = new Date().getTime();
+      let timeDiff = typingTimer - lastTypingTime;
+      if (timeDiff >= 500 && typing) {
+        socket.emit("stop typing");
+        typing = false;
+      }
+    }, 500);
+  }
+};
+
+// Get the "X is typing" messages of a user
+const getTypingMessages = (data) => {
+  typingMessages = document.querySelectorAll(".typing");
+  console.log(typingMessages);
+  return typingMessages.filter((msg) => {
+    return msg.firstChild.textContent === data.username;
+  });
 };
 
 /* Keyboard Events */
@@ -106,6 +160,10 @@ window.addEventListener("keydown", (e) => {
       setUsername();
     }
   }
+});
+
+messageInput.addEventListener("keydown", () => {
+  updateTyping();
 });
 
 /* Click Events */
@@ -135,6 +193,12 @@ socket.on("user left", (data) => {
   log(`${data.username} left`);
   addParticipantsMessage(data);
 });
+
+// Whenever the server emits 'typing', show the typing message
+socket.on("typing", (data) => addChatTyping(data));
+
+// Whenever the server emits 'stop typing', remove the typing message
+socket.on("stop typing", (data) => removeChatTyping(data));
 
 socket.on("disconnect", () => log("you have been disconnected"));
 
