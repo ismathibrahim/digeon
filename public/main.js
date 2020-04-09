@@ -32,6 +32,7 @@ const setUsername = () => {
   // If the username is valid
   if (username) {
     loginPage.style.display = "none";
+    loginPage.removeEventListener("click", () => currentInput.focus());
     chatPage.style.display = "flex";
     currentInput = messageInput;
     messageInput.focus();
@@ -136,15 +137,6 @@ const updateTyping = () => {
   }
 };
 
-// Get the "X is typing" messages of a user
-const getTypingMessages = (data) => {
-  typingMessages = document.querySelectorAll(".typing");
-  console.log(typingMessages);
-  return typingMessages.filter((msg) => {
-    return msg.firstChild.textContent === data.username;
-  });
-};
-
 /* Keyboard Events */
 
 window.addEventListener("keydown", (e) => {
@@ -167,6 +159,12 @@ messageInput.addEventListener("keydown", () => {
 });
 
 /* Click Events */
+
+// Focus input when clicking anywhere on login page
+loginPage.addEventListener("click", () => currentInput.focus());
+
+// Focus input when clicking anywhere on chat page
+chatPage.addEventListener("click", () => currentInput.focus());
 
 /* Socket Events */
 
