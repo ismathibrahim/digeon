@@ -17,7 +17,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #2f2b43;
+  background-color: #131217;
 }
 
 /* Login Page */
@@ -73,7 +73,7 @@ body {
 .log {
   padding: 10px 15px 10px 15px;
   color: #fff;
-  background-color: #393351;
+  background-color: #2a2938;
   border-radius: 5px;
   font-size: 80%;
   align-self: center;
@@ -110,7 +110,7 @@ body {
 .message-body {
   overflow-wrap: normal;
   max-width: 300px;
-  background-color: #393351;
+  background-color: #2a2938;
   padding: 10px 15px 10px 15px;
   border-radius: 10px;
   color: #efeff1;
@@ -121,7 +121,7 @@ body {
 }
 
 .ownMessage .message-body {
-  background-color: #4d7cfe;
+  background-color: #a854a5;
   color: #fff;
 }
 
@@ -154,7 +154,7 @@ body {
   width: 600px;
 }
 .message-input {
-  background-color: #393351;
+  background-color: #2a2938;
   color: #fff;
   border-color: transparent;
   border-radius: 1rem;
@@ -195,7 +195,7 @@ body {
   background: transparent;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: #393351;
+  background-color: #2a2938;
   border-radius: 20px;
-  border: 3px solid #2f2b43;
+  border: 3px solid #131217;
 }
